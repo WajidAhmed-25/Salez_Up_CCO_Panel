@@ -123,7 +123,15 @@ const Dashboard = () => {
       <div className="flex">
         <Sidebar />
         <div className="flex-1 p-4">
-          <OrganizationalChart />
+          {/* <OrganizationalChart /> */}
+
+          <div className='pt-12'>
+          <h1 className="text-[28px] leading-[42px] text-themeGreen font-[600] ml-[-10px]">
+          Complete Org Chart
+          </h1>
+          </div>
+
+          
         </div>
       </div>
     </>
