@@ -162,6 +162,9 @@ const OpsManagerTable = () => {
                   <th className="px-4 font-[500]">Password</th>
                   <th className="px-4 font-[500]">Commission</th>
                   <th className="px-4 font-[500]">Secret ID</th>
+                  <th className="px-4 font-[500]">Admin Name</th> 
+                  <th className="px-4 font-[500]">Senior Ops</th> 
+                  <th className="px-4 font-[500]">Head of Sales</th>
                   <th className="px-4 font-[500]">Actions</th>
                 </tr>
               </thead>
@@ -175,6 +178,9 @@ const OpsManagerTable = () => {
                       <td className="px-4">••••••••</td>
                       <td className="px-4">{manager.manager_commision}</td>
                       <td className="px-4">{manager.manager_secret_id}</td>
+                      <td className="px-4">{manager.admin?.admin_username || null}</td>
+                      <td className="px-4">{manager.senior_ops_manager?.manager_name || null}</td>
+                      <td className="px-4">{manager.head_of_sales?.manager_name || null}</td>
                       <td className="px-4 py-[10px]">
                         <span className="mx-1 cursor-pointer" onClick={() => handleEditClick(manager)}>
                           <img src="../images/edit.png" className="inline h-[18px] w-[18px]" alt="Edit" />
