@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    color: white;
+}
+
+.default-icon {
+    filter: invert(46%) sepia(9%) saturate(470%) hue-rotate(140deg) brightness(87%) contrast(82%);
+}
+
+.default-icon:hover {
+    filter: invert(47%) sepia(68%) saturate(413%) hue-rotate(120deg) brightness(97%) contrast(94%);
+}
+
+.icon-parent:hover .default-icon {
+    filter: invert(47%) sepia(68%) saturate(413%) hue-rotate(120deg) brightness(97%) contrast(94%);
+}
+
+.hovered-icon {
+    filter: invert(47%) sepia(68%) saturate(413%) hue-rotate(120deg) brightness(97%) contrast(94%);
+}
+
+.card {
+    @apply shadow-[-3px_8px_20px_0px_#1E86751F];
+    @apply rounded-[20px];
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 4px;
+    padding-right: 32px;
+    background: url(/public/icons/selectDropdown.png) right no-repeat;
+}
+
+/* 
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    background: url() no-repeat;
+    -webkit-appearance: none;
+} */
+
+/* input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url(/dashboard-app/public/icons/calendarIcon.png) no-repeat;
+} */
+
+
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+} */
+
+.custom-date-input,
+.custom-time-input {
+    position: relative;
+}
+
+.date-input,
+.time-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.date-input::-webkit-calendar-picker-indicator,
+.time-input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+
+    .custom th,
+    .custom td {
+        width: auto !important;
+        display: block;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    .custom tr {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .custom img {
+        margin-bottom: 10px;
+    }
+}
+
+.agent-inside-border {
+    position: relative;
+}
+
+.agent-inside-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 100%;
+    z-index: 10;
+    pointer-events: none;
+    z-index: 500;
+    border: 3px solid red !important;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 28px;
+    width: 28px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 3px solid #1E8675;
+}
+
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 28px;
+    width: 28px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 3px solid #1E8675;
+}
