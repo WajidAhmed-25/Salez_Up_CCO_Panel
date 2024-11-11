@@ -47,7 +47,7 @@ export default function JDH() {
 
   const fetchJuniorDeptHeads = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/junior-department-heads');
+      const response = await axios.get('https://crmapi.devcir.co/api/junior-department-heads');
       console.log('API Response:', response.data);
       setJuniorDeptHeads(response.data);
     } catch (error) {
@@ -80,7 +80,7 @@ export default function JDH() {
 
   const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/junior-department-heads/${jdhToDelete.id}`);
+      await axios.delete(`https://crmapi.devcir.co/api/junior-department-heads/${jdhToDelete.id}`);
       toast.success('Junior department head deleted successfully!');
       fetchJuniorDeptHeads();
       setIsDeleteModalOpen(false);
@@ -112,7 +112,7 @@ export default function JDH() {
         ...editedJDH,
         password: encryptedPassword
       };
-      await axios.put(`http://localhost:8000/api/junior-department-heads/${selectedJDHId}`, updatedJDH);
+      await axios.put(`https://crmapi.devcir.co/api/junior-department-heads/${selectedJDHId}`, updatedJDH);
       toast.success('Junior department head updated successfully!');
       console.log("Encrypted: ",encryptedPassword)
       fetchJuniorDeptHeads();

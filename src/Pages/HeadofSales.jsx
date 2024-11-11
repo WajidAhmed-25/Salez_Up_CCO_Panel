@@ -49,7 +49,7 @@ const HeadofSales = () => {
 
   const fetchManagers = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/manager_details');
+      const response = await axios.get('https://crmapi.devcir.co/api/manager_details');
       const opsManagers = response.data.filter(manager => manager.manager_role === 'Head Of Sales');
       setManagers(opsManagers);
     } catch (error) {
@@ -78,7 +78,7 @@ const HeadofSales = () => {
 
   const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/manager_details/${managerToDelete.id}`);
+      await axios.delete(`https://crmapi.devcir.co/api/manager_details/${managerToDelete.id}`);
       toast.success('Manager deleted successfully!');
       fetchManagers();
       setIsDeleteModalOpen(false);
@@ -113,7 +113,7 @@ const HeadofSales = () => {
         manager_secret_id: editedManager.manager_secret_id,
         manager_password: encryptedPassword
       };
-      await axios.put(`http://localhost:8000/api/manager_details/${selectedManagerId}`, updatedManager);
+      await axios.put(`https://crmapi.devcir.co/api/manager_details/${selectedManagerId}`, updatedManager);
       toast.success('Manager updated successfully!');
       fetchManagers();
       handleCloseModal();

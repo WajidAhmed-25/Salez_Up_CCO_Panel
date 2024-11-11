@@ -46,7 +46,7 @@ export default function HOD() {
 
   const fetchDepartmentHeads = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/department-heads');
+      const response = await axios.get('https://crmapi.devcir.co/api/department-heads');
       console.log('API Response:', response.data);
       setDepartmentHeads(response.data);
     } catch (error) {
@@ -77,7 +77,7 @@ export default function HOD() {
 
   const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/department-heads/${departmentHeadToDelete.id}`);
+      await axios.delete(`https://crmapi.devcir.co/api/department-heads/${departmentHeadToDelete.id}`);
       toast.success('Department head deleted successfully!');
       fetchDepartmentHeads();
       setIsDeleteModalOpen(false);
@@ -109,7 +109,7 @@ export default function HOD() {
         ...editedDepartmentHead,
         password: encryptedPassword
       };
-      await axios.put(`http://localhost:8000/api/department-heads/${selectedDepartmentHeadId}`, updatedDepartmentHead);
+      await axios.put(`https://crmapi.devcir.co/api/department-heads/${selectedDepartmentHeadId}`, updatedDepartmentHead);
       toast.success('Department head updated successfully!');
       fetchDepartmentHeads();
       handleCloseModal();

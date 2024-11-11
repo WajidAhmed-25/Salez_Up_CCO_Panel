@@ -88,7 +88,7 @@ const UpdateModal = ({ isOpen, onClose, data }) => {
     let fetchedTeamAndLeaders = [];
 
     axios
-      .get("http://localhost:8000/api/teams")
+      .get("https://crmapi.devcir.co/api/teams")
       .then((response) => {
         fetchedTeams = response.data.filter(
           (team) => team.manager_id == localStorage.getItem("id")
@@ -100,7 +100,7 @@ const UpdateModal = ({ isOpen, onClose, data }) => {
       });
 
     axios
-      .get("http://127.0.0.1:8000/api/team_and_team_leader")
+      .get("https://crmapi.devcir.co/api/team_and_team_leader")
       .then((response) => {
         fetchedTeamAndLeaders = response.data;
         setTeam_And_TeamLeader(fetchedTeamAndLeaders);
@@ -170,7 +170,7 @@ const UpdateModal = ({ isOpen, onClose, data }) => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/campaigns")
+      .get("https://crmapi.devcir.co/api/campaigns")
       .then((response) => {
         setCampaigns(response.data);
         response.data.forEach((campaign) =>
@@ -210,7 +210,7 @@ const UpdateModal = ({ isOpen, onClose, data }) => {
 
     axios
       .post(
-        `http://127.0.0.1:8000/api/team_leaders/${id}?_method=PUT`,
+        `https://crmapi.devcir.co/api/team_leaders/${id}?_method=PUT`,
         formData,
         {
           headers: {
@@ -239,7 +239,7 @@ const UpdateModal = ({ isOpen, onClose, data }) => {
       });
 
     axios
-      .post(`http://127.0.0.1:8000/api/update_team_leader`, selectedTeam)
+      .post(`https://crmapi.devcir.co/api/update_team_leader`, selectedTeam)
       .then((response) => {
         toast.success("Team Leader successfully updated", {
           position: "bottom-right",
@@ -511,7 +511,7 @@ const TeamLeader = () => {
     );
     if (!confirmed) return;
 
-    fetch(`http://127.0.0.1:8000/api/team_leader_update/${team.id}`, {
+    fetch(`https://crmapi.devcir.co/api/team_leader_update/${team.id}`, {
       method: "PUT",
     })
       .then((response) => {
@@ -538,7 +538,7 @@ const TeamLeader = () => {
         console.error("Error deleting the team leader:", error)
       );
 
-    fetch(`http://127.0.0.1:8000/api/team_leaders/${team.id}`, {
+    fetch(`https://crmapi.devcir.co/api/team_leaders/${team.id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -574,12 +574,12 @@ const TeamLeader = () => {
     const fetchTeamAndTeamLeaders = async () => {
       try {
         const teamAndLeaderResponse = await fetch(
-          "http://127.0.0.1:8000/api/team_and_team_leader"
+          "https://crmapi.devcir.co/api/team_and_team_leader"
         );
         const teamAndLeaderData = await teamAndLeaderResponse.json();
   
         const teamLeadersResponse = await fetch(
-          "http://127.0.0.1:8000/api/team_leaders"
+          "https://crmapi.devcir.co/api/team_leaders"
         );
   
         const teamLeadersData = await teamLeadersResponse.json();

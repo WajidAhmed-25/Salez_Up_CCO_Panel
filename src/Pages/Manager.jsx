@@ -21,7 +21,7 @@ const Manager = () => {
 
     // Fetch data from API
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/managers')
+        axios.get('https://crmapi.devcir.co/api/managers')
             .then(response => {
                 setManagers(response.data);
             })
@@ -69,7 +69,7 @@ const Manager = () => {
         const encryptedPassword = CryptoJS.AES.encrypt(formData.password, 'DBBDRSSR54321').toString();
 
         // Send PUT request to update the manager's data
-        axios.put(`http://127.0.0.1:8000/api/managers/${selectedManager.id}`, {
+        axios.put(`https://crmapi.devcir.co/api/managers/${selectedManager.id}`, {
             manager_name: formData.manager_name,
             email: formData.email,
             password: encryptedPassword,

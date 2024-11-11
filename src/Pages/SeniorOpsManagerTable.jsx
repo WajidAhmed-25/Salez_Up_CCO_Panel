@@ -49,7 +49,7 @@
 
 //   const fetchManagers = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:8000/api/ops_managers');
+//       const response = await axios.get('https://crmapi.devcir.co/api/ops_managers');
 //       setManagers(response.data);
 //     } catch (error) {
 //       toast.error('Failed to fetch managers');
@@ -77,7 +77,7 @@
 
 //   const handleConfirmDelete = async () => {
 //     try {
-//       await axios.delete(`http://localhost:8000/api/ops_managers/${managerToDelete.id}`);
+//       await axios.delete(`https://crmapi.devcir.co/api/ops_managers/${managerToDelete.id}`);
 //       toast.success('Manager deleted successfully!');
 //       fetchManagers();
 //       setIsDeleteModalOpen(false);
@@ -109,7 +109,7 @@
 //         ...editedManager,
 //         password: encryptedPassword
 //       };
-//       await axios.put(`http://localhost:8000/api/ops_managers/${selectedManagerId}`, updatedManager);
+//       await axios.put(`https://crmapi.devcir.co/api/ops_managers/${selectedManagerId}`, updatedManager);
 //       toast.success('Manager updated successfully!');
 //       fetchManagers();
 //       handleCloseModal();
@@ -408,7 +408,7 @@ const SeniorOpsManagerTable = () => {
 
   const fetchManagers = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/manager_details');
+      const response = await axios.get('https://crmapi.devcir.co/api/manager_details');
       const opsManagers = response.data.filter(manager => manager.manager_role === 'Senior Ops Manager');
       setManagers(opsManagers);
     } catch (error) {
@@ -437,7 +437,7 @@ const SeniorOpsManagerTable = () => {
 
   const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/manager_details/${managerToDelete.id}`);
+      await axios.delete(`https://crmapi.devcir.co/api/manager_details/${managerToDelete.id}`);
       toast.success('Manager deleted successfully!');
       fetchManagers();
       setIsDeleteModalOpen(false);
@@ -472,7 +472,7 @@ const SeniorOpsManagerTable = () => {
         manager_secret_id: editedManager.manager_secret_id,
         manager_password: encryptedPassword
       };
-      await axios.put(`http://localhost:8000/api/manager_details/${selectedManagerId}`, updatedManager);
+      await axios.put(`https://crmapi.devcir.co/api/manager_details/${selectedManagerId}`, updatedManager);
       toast.success('Manager updated successfully!');
       fetchManagers();
       handleCloseModal();

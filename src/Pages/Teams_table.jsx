@@ -30,7 +30,7 @@ const Teams_table = () => {
   useEffect(() => {
     const fetchTeamLeaders = async () => {
         try {
-          const response = await axios.get("http://127.0.0.1:8000/api/team_leaders");
+          const response = await axios.get("https://crmapi.devcir.co/api/team_leaders");
           setUniqueTeamLeaders(response.data); // No filtering by manager_id
         } catch (error) {
           console.error("Error fetching all team leaders:", error);
@@ -46,7 +46,7 @@ const Teams_table = () => {
     const fetchTeamAndLeaderData = async () => {
         try {
           const response = await axios.get(
-            "http://127.0.0.1:8000/api/team_and_team_leader"
+            "https://crmapi.devcir.co/api/team_and_team_leader"
           );
           
           const filteredTeams = response.data.filter((team) => {
@@ -145,7 +145,7 @@ const Teams_table = () => {
 
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/api/team_and_team_leader"
+          "https://crmapi.devcir.co/api/team_and_team_leader"
         );
         const existingLeader = response.data.find(
           (team) => team.team_leader_id === parseInt(value)
@@ -172,7 +172,7 @@ const Teams_table = () => {
 
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/team_and_team_leader"
+        "https://crmapi.devcir.co/api/team_and_team_leader"
       );
       const existingTeam = response.data.find(
         (team) =>
@@ -186,7 +186,7 @@ const Teams_table = () => {
       }
 
       await axios.put(
-        `http://127.0.0.1:8000/api/team_and_team_leader_update/${currentTeam.id}`,
+        `https://crmapi.devcir.co/api/team_and_team_leader_update/${currentTeam.id}`,
         {
           team_id: currentTeam.team_id,
           team_leader_id: editedTeam.team_leader_id,
@@ -194,7 +194,7 @@ const Teams_table = () => {
       );
 
       await axios.put(
-        `http://127.0.0.1:8000/api/teams/update-name-from-leader/${currentTeam.team_id}`,
+        `https://crmapi.devcir.co/api/teams/update-name-from-leader/${currentTeam.team_id}`,
         {
           team_name: currentTeam.team.team_name,
         }
@@ -229,12 +229,12 @@ const Teams_table = () => {
       try {
         // Delete team_and_team_leader data using its id
         await axios.delete(
-          `http://127.0.0.1:8000/api/team_and_team_leader_delete/${id}`
+          `https://crmapi.devcir.co/api/team_and_team_leader_delete/${id}`
         );
 
         // Delete associated team data using team_id
         await axios.delete(
-          `http://127.0.0.1:8000/api/team_leader_team_delete/${teamId}`
+          `https://crmapi.devcir.co/api/team_leader_team_delete/${teamId}`
         );
 
         // Refresh the data

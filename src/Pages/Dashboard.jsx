@@ -15,12 +15,12 @@ const Dashboard = () => {
     }
 
     // Fetch admins data
-    fetch('http://localhost:8000/api/admin_portal_login')
+    fetch('https://crmapi.devcir.co/api/admin_portal_login')
       .then((response) => response.json())
       .then((data) => setAdmins(data))
       .catch((error) => console.error('Error fetching admins:', error));
 
-    fetch('http://localhost:8000/api/head_of_sales')
+    fetch('https://crmapi.devcir.co/api/head_of_sales')
       .then((response) => response.json())
       .then((data) => setHos(data))
       .catch((error) => console.error('Error fetching admins:', error));

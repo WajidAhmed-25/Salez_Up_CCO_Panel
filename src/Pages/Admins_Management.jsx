@@ -46,7 +46,7 @@
 
 //   const fetchAdminData = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:8000/api/admin_portal_login');
+//       const response = await axios.get('https://crmapi.devcir.co/api/admin_portal_login');
 //       console.log('API Response:', response.data);
 //       setAdminData(response.data);
 //     } catch (error) {
@@ -73,7 +73,7 @@
 
 //   const handleConfirmDelete = async () => {
 //     try {
-//       await axios.delete(`http://localhost:8000/api/admin_portal_login/${adminToDelete.id}`);
+//       await axios.delete(`https://crmapi.devcir.co/api/admin_portal_login/${adminToDelete.id}`);
 //       toast.success('Admin deleted successfully!');
 //       fetchAdminData();
 //       setIsDeleteModalOpen(false);
@@ -105,7 +105,7 @@
 //         ...editedAdmin,
 //         admin_password: encryptedPassword
 //       };
-//       await axios.put(`http://localhost:8000/api/admin_portal_login/${selectedAdminId}`, updatedAdmin);
+//       await axios.put(`https://crmapi.devcir.co/api/admin_portal_login/${selectedAdminId}`, updatedAdmin);
 //       toast.success('Admin updated successfully!');
 //       fetchAdminData();
 //       handleCloseModal();
@@ -376,7 +376,7 @@ export default function Admins_Management() {
 
   const fetchAdminData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/admin_portal_login');
+      const response = await axios.get('https://crmapi.devcir.co/api/admin_portal_login');
       console.log('API Response:', response.data);
       setAdminData(response.data);
     } catch (error) {
@@ -405,7 +405,7 @@ export default function Admins_Management() {
         admin_password: encryptedPassword
       };
       
-      await axios.post('http://localhost:8000/api/admin_portal_login', adminToCreate);
+      await axios.post('https://crmapi.devcir.co/api/admin_portal_login', adminToCreate);
       toast.success('Admin created successfully!');
       fetchAdminData();
       setIsCreateModalOpen(false);
@@ -439,7 +439,7 @@ export default function Admins_Management() {
 
   const handleConfirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/admin_portal_login/${adminToDelete.id}`);
+      await axios.delete(`https://crmapi.devcir.co/api/admin_portal_login/${adminToDelete.id}`);
       toast.success('Admin deleted successfully!');
       fetchAdminData();
       setIsDeleteModalOpen(false);
@@ -473,7 +473,7 @@ export default function Admins_Management() {
         ...editedAdmin,
         admin_password: encryptedPassword
       };
-      await axios.put(`http://localhost:8000/api/admin_portal_login/${selectedAdminId}`, updatedAdmin);
+      await axios.put(`https://crmapi.devcir.co/api/admin_portal_login/${selectedAdminId}`, updatedAdmin);
       toast.success('Admin updated successfully!');
       fetchAdminData();
       handleCloseModal();

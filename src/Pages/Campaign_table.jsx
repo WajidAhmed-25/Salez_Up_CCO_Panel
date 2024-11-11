@@ -29,10 +29,10 @@ const Campaign_table = () => {
           juniorHeadsResponse,
           departmentHeadsResponse
         ] = await Promise.all([
-          axios.get('http://127.0.0.1:8000/api/campaigns_and_teams'),
-          axios.get('http://127.0.0.1:8000/api/teams'),
-          axios.get('http://127.0.0.1:8000/api/junior-department-heads'),
-          axios.get('http://127.0.0.1:8000/api/department-heads')
+          axios.get('https://crmapi.devcir.co/api/campaigns_and_teams'),
+          axios.get('https://crmapi.devcir.co/api/teams'),
+          axios.get('https://crmapi.devcir.co/api/junior-department-heads'),
+          axios.get('https://crmapi.devcir.co/api/department-heads')
         ]);
 
         setCampaigns(campaignsResponse.data);
@@ -178,7 +178,7 @@ useEffect(() => {
         if (!confirmation) return;
       }
 
-      await axios.put(`http://127.0.0.1:8000/api/campaigns_and_teams_update/${selectedCampaignId}`, {
+      await axios.put(`https://crmapi.devcir.co/api/campaigns_and_teams_update/${selectedCampaignId}`, {
         junior_department_head_id: juniorDepartmentHeadId,
         department_head_id: departmentHeadId
       });
